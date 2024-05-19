@@ -36,7 +36,7 @@ public class Service : BackgroundService
         var enableAmbientCheck = configuration.GetValue<bool>("EnableAboveAmbient");
         Logger.LogInformation($"Enable above ambient check: {enableAmbientCheck}");
         var relayControlPin = configuration.GetValue<int>("RelayControlPin");
-        relayControl.GpioPin = relayControlPin;
+        relayControl.InitializePin(relayControlPin);
         Logger.LogInformation($"Using relay control GPIO pin: {relayControlPin}");
 
         while (!stoppingToken.IsCancellationRequested)
