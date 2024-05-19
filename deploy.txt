@@ -1,0 +1,9 @@
+# Deploy Update Steps
+# Run on RPI
+sudo systemctl stop temperature-relay.service
+
+# Rub on build box
+scp -r C:/Code/pi-temp-relay/PiTempControlledRelay/bin/Debug/net8.0/* pi@circulate:/home/pi/temperature-relay/
+
+# Run on RPI
+sudo systemctl start temperature-relay.service
