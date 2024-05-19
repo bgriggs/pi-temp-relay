@@ -6,7 +6,7 @@ internal class RpiRelay : IRelayControl
 {
     public bool IsOn { get; private set; }
     public int GpioPin { get; private set; }
-    private GpioController controller = new();
+    private readonly GpioController controller = new();
 
     public void InitializePin(int gpioPin)
     {
