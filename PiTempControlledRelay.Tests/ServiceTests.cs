@@ -56,6 +56,7 @@ public class ServiceTests
         // Act
         await service!.RunExecute(CancellationToken.None);
 
+        // Assert
         Assert.AreEqual(true, relayControl!.IsOn);
     }
 
@@ -71,6 +72,7 @@ public class ServiceTests
         // Act
         await service!.RunExecute(CancellationToken.None);
 
+        // Assert
         Assert.AreEqual(true, relayControl!.IsOn);
     }
 
