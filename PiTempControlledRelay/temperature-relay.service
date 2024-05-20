@@ -9,8 +9,8 @@ StartLimitBurst=10
 Restart=always
 RestartSec=10s
 
-WorkingDirectory=/home/pi/PiTempControlledRelay
-ExecStart=/home/pi/.dotnet/dotnet /home/pi/PiTempControlledRelay/PiTempControlledRelay.dll
+WorkingDirectory=/home/pi/temperature-relay
+ExecStart=/home/pi/.dotnet/dotnet /home/pi/temperature-relay/PiTempControlledRelay.dll
 
 [Install]
 WantedBy=multi-user.target

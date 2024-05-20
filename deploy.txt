@@ -3,7 +3,9 @@
 sudo systemctl stop temperature-relay.service
 
 # Rub on build box
-scp -r C:/Code/pi-temp-relay/PiTempControlledRelay/bin/Debug/net8.0/* pi@circulate:/home/pi/temperature-relay/
+scp -r C:/Code/pi-temp-relay/PiTempControlledRelay/bin/Debug/net8.0/* pi@rpigen:/home/pi/temperature-relay/
+
+sudo cp /home/pi/temperature-relay/temperature-relay.service /lib/systemd/system
 
 # Run on RPI
 sudo systemctl start temperature-relay.service

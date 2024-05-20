@@ -35,7 +35,7 @@ public class Service : BackgroundService
         Logger.LogInformation($"Using VRM sensor ID: {sensorId}");
         var enableAmbientCheck = configuration.GetValue<bool>("EnableAboveAmbient");
         Logger.LogInformation($"Enable above ambient check: {enableAmbientCheck}");
-        var relayControlPin = configuration.GetValue<int>("RelayControlPin");
+        var relayControlPin = configuration.GetValue<int>("RelayGPIOPin");
         relayControl.InitializePin(relayControlPin);
         Logger.LogInformation($"Using relay control GPIO pin: {relayControlPin}");
 
@@ -60,6 +60,11 @@ public class Service : BackgroundService
                 {
                     relayControl.TurnOn();
                     Logger.LogInformation($"Relay turned on: {temperature} > {tempThresholdF} && {aboveAmbient}");
+                }
+                else
+                {
+                    relayControl.TurnOff();
+                    Logger.LogInformation($"Relay turned off: {temperature} < {tempThresholdF} || !{aboveAmbient}");
                 }
             }
             else // Relay is on

@@ -16,13 +16,13 @@ internal class RpiRelay : IRelayControl
 
     public void TurnOff()
     {
-        controller.Write(GpioPin, PinValue.Low);
+        controller.Write(GpioPin, PinValue.High);
         IsOn = false;
     }
 
     public void TurnOn()
     {
-        controller.Write(GpioPin, PinValue.High);
+        controller.Write(GpioPin, PinValue.Low);
         IsOn = true;
     }
 }
